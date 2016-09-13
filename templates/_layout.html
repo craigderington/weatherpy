@@ -9,17 +9,18 @@
     <meta name="author" content="">
     <link rel="icon" href="static/favicon.ico">
 
-    <title>weatherpy by Weather Underground</title>
+    <title>weatherpy &raquo; Powered by Flask and the Weather Underground</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/weather-icons.min.css">
 
-      <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="static/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="/static/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="static/css/jumbotron.css" rel="stylesheet">
+    <link href="/static/css/jumbotron.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -39,17 +40,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">weatherpy</a>
+          <a class="navbar-brand" href="http://localhost:5000/"><strong><i class="fa fa-cloud"></i> weatherpy</strong></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <form class="navbar-form navbar-right">
             <div class="form-group">
-              <input type="text" placeholder="Email" class="form-control">
+              <input type="text" size="40" class="form-control" placeholder="Search Cities">
             </div>
-            <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
+            <button type="submit" class="btn btn-success"><i class="fa fa-search"></i> Search Cities</button>
           </form>
         </div><!--/.navbar-collapse -->
       </div>
@@ -59,7 +57,7 @@
 
         {% endblock %}
 
-
+    <hr>
     <footer>
         <p>&copy; 2016 Craig Derington
             <span class="pull-right">
@@ -73,10 +71,10 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="static/js/jquery.min.js"></script>
+    <script src="/static/js/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="static/js/bootstrap.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="static/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="/static/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>
