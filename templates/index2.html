@@ -5,7 +5,29 @@
 
 
     <div class="container" style="margin-top:10px;">
-      {{ query }}
+        <table class="table table-stripe table-hover">
+            <thead>
+                <tr>
+                    <th width="2%">Go</th>
+                    <th>City</th>
+                    <th>Country</th>
+                    <th>Lat/Long</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in data['RESULTS'] %}
+                    <tr>
+                        <form method="post" action="{{ url_for('get_location') }}">
+                          <td><button type="submit" class="btn btn-xs"><i class="wi wi-barometer"></i></button></td>
+                          <td>{{ item['name'] }}</td>
+                          <td>{{ item['c'] }}</td>
+                          <td>{{ item['lat'] }}/{{ item['lon'] }}</td>
+                            <input type="hidden" name="location" value="{{ item['ll'] }}" />
+                        </form>
+                    </tr>
+                {% endfor %}
+            </tbody>
+      </table>
     </div>
 
 
