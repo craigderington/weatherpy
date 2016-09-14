@@ -5,7 +5,7 @@ import requests
 import json
 import datetime
 import os
-import urllib.parse
+import urllib
 
 app = Flask(__name__)
 
@@ -40,26 +40,15 @@ def index():
     welcome = 'Hello weatherpy!'
 
     if request.method == 'POST':
-        try:
-            query = request.form['search']
-            data = get_search_data(query)
-            context = {
-                'data': data,
-            }
-
-            return render_template(
-                'index.html',
-                context=context
-            )
-
-        except (ValueError, TypeError):
-            return "The input was not in a recognized format.  Please try again..."
-
+        query = request.form['search']
+        return render_template(
+            'index2.html',
+            query=query,
+        )
     else:
-
         return render_template(
             'index.html',
-            context=welcome
+            welcome=welcome,
         )
 
 
@@ -76,7 +65,7 @@ def get_search_data(query):
     r = requests.get(url, headers=hdr)
     status = str(r.status_code)
     decoded = r.json()
-    return decoded, status
+    return status, decoded
 
 
 def get_location_data(location):
@@ -84,11 +73,11 @@ def get_location_data(location):
 
 
 def build_url(base, key, cat, query, format):
-    return base + key + cat + urllib.parse.quote(query) + format
+    return base + key + cat + urllib.urlencode(query) + format
 
 
 def build_ac_url(base, query):
-    return base + urllib.parse.quote(query)
+    return base + urllib.urlencode(query)
 
 
 if __name__ == '__main__':

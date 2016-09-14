@@ -43,27 +43,30 @@
           <a class="navbar-brand" href="http://localhost:5000/"><strong><i class="fa fa-cloud"></i> weatherpy</strong></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right">
+          <form action="{{ url_for('index') }}" method="post" class="navbar-form navbar-right">
             <div class="form-group">
-              <input type="text" size="40" class="form-control" placeholder="Search Cities">
+              <input name="search" type="text" size="40" class="form-control" placeholder="Search Cities" {% if request.form %}value="{{ request.form['search'] }}"{% endif %}>
             </div>
-            <button type="submit" class="btn btn-success"><i class="fa fa-search"></i> Search Cities</button>
+            <button type="submit" class="btn btn-info"><i class="fa fa-search"></i> Search Cities</button>
           </form>
         </div><!--/.navbar-collapse -->
-      </div>
+      </div><!-- / .container -->
     </nav>
 
         {% block body %}
 
         {% endblock %}
 
-    <hr>
-    <footer>
-        <p>&copy; 2016 Craig Derington
-            <span class="pull-right">
-                Made with <i class="fa fa-heart-o"></i> in Oviedo, FL
-            </span>
-        </p>
+
+    <!-- / .footer -->
+    <div class="container">
+      <hr>
+      <footer>
+          <p>&copy; 2016 Craig Derington
+              <span class="pull-right">
+                  Made with <i class="fa fa-heart-o"></i> in Oviedo, FL
+              </span>
+          </p>
       </footer>
     </div><!-- /container -->
 
