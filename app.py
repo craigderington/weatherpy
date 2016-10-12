@@ -23,15 +23,15 @@ format = '.json'
 
 wu_cats = {
     "geolookup": "/geolookup/q/",
-    "satellite": "/satellite/",
-    "webcams": "/webcams/",
-    "conditions": "/conditions/",
-    "forecast": "/forecast/",
-    "forecast10day": "/forecast10day/"
+    "satellite": "/satellite/q/",
+    "webcams": "/webcams/q/",
+    "conditions": "/conditions/q/",
+    "forecast": "/forecast/q/",
+    "forecast10day": "/forecast10day/q/"
 }
 
 hdr = {
-    'user-agent': 'superbot by gravity'
+    'user-agent': 'weatherpy_superbot'
 }
 
 
@@ -42,6 +42,12 @@ def index():
     if request.method == 'POST':
         query = request.form['search']
         data = get_search_data(str(query))
+
+        if len(data) == 0:
+            data = None
+        else:
+            data = data
+
         return render_template(
             'index2.html',
             data=data,
@@ -109,7 +115,7 @@ def build_ac_url(base, query):
 
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5555))
+    port = int(os.environ.get('PORT', 5580))
     app.run(
         host='0.0.0.0',
         port=port,

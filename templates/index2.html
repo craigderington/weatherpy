@@ -5,13 +5,21 @@
 
 
     <div class="container" style="margin-top:10px;">
+    {% if data == None %}
+        <div class="alert alert-info alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4><strong><i class="wi wi-day-thunderstorm"></i> Opps!</strong> Sorry...</h4>
+            <p>There were no cities matching your query.  Please try again.</p>
+        </div>
+
+    {% else %}
         <table class="table table-stripe table-hover">
             <thead>
                 <tr>
                     <th width="2%">Go</th>
                     <th>City</th>
                     <th>Country</th>
-                    <th>Lat/Long</th>
+                    <th>Lat/Lon</th>
                 </tr>
             </thead>
             <tbody>
@@ -27,7 +35,8 @@
                     </tr>
                 {% endfor %}
             </tbody>
-      </table>
+        </table>
+    {% endif %}
     </div>
 
 
